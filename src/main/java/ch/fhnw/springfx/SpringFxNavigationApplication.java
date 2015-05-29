@@ -1,12 +1,19 @@
 package ch.fhnw.springfx;
 
-import org.springframework.boot.SpringApplication;
+import javafx.stage.Stage;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @SpringBootApplication
-public class SpringFxNavigationApplication {
+public class SpringFxNavigationApplication extends AbstractJavaFxApplicationSupport{
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringFxNavigationApplication.class, args);
+        launchApp(SpringFxNavigationApplication.class, args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
     }
 }
