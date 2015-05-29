@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" prefHeight="659.0" prefWidth="1117.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.fhnw.springfx.presentation.first.FirstPresenter">
+   <children>
+      <TextField fx:id="nameTextField" layoutX="202.0" layoutY="122.0" promptText="Name" />
+      <Button fx:id="nextPageButton" layoutX="241.0" layoutY="175.0" mnemonicParsing="false" onAction="#handleNextPage" text="Next page" />
+   </children>
+</AnchorPane>
