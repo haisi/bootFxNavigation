@@ -2,6 +2,7 @@ package ch.fhnw.springfx.presentation.root;
 
 import ch.fhnw.springfx.presentation.ViewNavigator;
 import ch.fhnw.springfx.presentation.first.FirstView;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import org.springframework.stereotype.Component;
@@ -15,9 +16,6 @@ import javax.inject.Inject;
 public class RootPresenter {
 
     @Inject
-    FirstView firstView;
-
-    @Inject
     ViewNavigator navigator;
 
     @FXML
@@ -27,7 +25,7 @@ public class RootPresenter {
     public void initialize() {
         System.out.println("init RootPresenter");
 
-        navigator.setMainView(firstView.getView());
+        navigator.setMainView(FirstView.class);
 
         rootBorderPane.centerProperty().bind(navigator.mainViewProperty());
     }
@@ -35,5 +33,10 @@ public class RootPresenter {
     @FXML
     private void handleExit() {
         System.exit(0);
+    }
+
+    @FXML
+    public void handleBack(ActionEvent actionEvent) {
+        navigator.stepBack();
     }
 }

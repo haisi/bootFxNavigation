@@ -16,6 +16,9 @@
                         <MenuItem mnemonicParsing="false" text="Exit" onAction="#handleExit" />
                     </items>
                 </Menu>
+                <Menu mnemonicParsing="false" text="back">
+                    <MenuItem mnemonicParsing="false" text="Back" onAction="#handleBack" />
+                </Menu>
             </menus>
         </MenuBar>
     </top>
