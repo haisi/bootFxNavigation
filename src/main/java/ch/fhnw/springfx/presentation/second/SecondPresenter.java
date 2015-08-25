@@ -5,17 +5,12 @@ import javafx.scene.control.Label;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
-
 /**
  * @author Hasan Kara <hasan.kara@fhnw.ch>
  */
 @Component
 @Scope("prototype")
 public class SecondPresenter {
-
-    @Inject
-    String name;
 
     @FXML
     Label greetingLbl;
@@ -24,7 +19,7 @@ public class SecondPresenter {
     public void initialize() {
         System.out.println("init SecondPresenter");
 
-        greetingLbl.setText("Hallo " + name);
+        greetingLbl.setText("Hallo "); //Here I want to get the value from the previous view!!!
     }
 
 

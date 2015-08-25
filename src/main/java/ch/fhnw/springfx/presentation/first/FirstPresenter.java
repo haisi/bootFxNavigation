@@ -24,9 +24,6 @@ public class FirstPresenter {
     @Inject
     ViewNavigator navigator;
 
-    @Inject
-    SecondView secondView;
-
     @FXML
     TextField nameTextField;
     @FXML
@@ -46,11 +43,6 @@ public class FirstPresenter {
     private void handleNextPage() {
         valueFromLastTime = nameTextField.getText();
         navigator.setMainView(SecondView.class);
-    }
-
-    @Bean
-    public String name() {
-        return nameTextField != null ? nameTextField.getText() : "";
     }
 
 }
