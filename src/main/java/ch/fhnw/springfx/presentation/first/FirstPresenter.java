@@ -40,7 +40,7 @@ public class FirstPresenter {
 
     @FXML
     private void handleNextPage() {
-        navigator.setMainView(secondView.getView());
+        navigator.setMainView(SecondView.class);
     }
 
     @Bean
