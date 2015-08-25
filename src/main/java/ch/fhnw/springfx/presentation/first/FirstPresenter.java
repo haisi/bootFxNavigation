@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -17,7 +18,7 @@ import javax.inject.Inject;
  * @author Hasan Kara <hasan.kara@fhnw.ch>
  */
 @Component
-@Configuration
+@Scope("prototype")
 public class FirstPresenter {
 
     @Inject
@@ -31,15 +32,19 @@ public class FirstPresenter {
     @FXML
     Button nextPageButton;
 
+    String valueFromLastTime = "empty";
+
     @FXML
     public void initialize() {
         System.out.println("init FirstPresenter");
 
+        nameTextField.setText(valueFromLastTime);
         nextPageButton.disableProperty().bind(nameTextField.textProperty().isEmpty());
     }
 
     @FXML
     private void handleNextPage() {
+        valueFromLastTime = nameTextField.getText();
         navigator.setMainView(SecondView.class);
     }
 

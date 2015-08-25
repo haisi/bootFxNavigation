@@ -2,6 +2,7 @@ package ch.fhnw.springfx.presentation.second;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -10,6 +11,7 @@ import javax.inject.Inject;
  * @author Hasan Kara <hasan.kara@fhnw.ch>
  */
 @Component
+@Scope("prototype")
 public class SecondPresenter {
 
     @Inject
