@@ -33,8 +33,8 @@ public class ViewNavigator {
     }
 
     public final void setMainView(Class<? extends AbstractFxmlView> viewClass) {
-        Parent newMainView = createNewBeanInstanceOfView(viewClass);
-        this.mainView.set(newMainView);
+        AbstractFxmlView abstractView = createNewBeanInstanceOfView(viewClass);
+        this.mainView.set(abstractView.getView());
 
         viewHistory.add(viewClass);
     }
@@ -42,14 +42,14 @@ public class ViewNavigator {
     public final void stepBack() {
         if (viewHistory.size() > 1) {
             viewHistory.pop();
-            this.mainView.set(createNewBeanInstanceOfView(viewHistory.peek()));
+            this.mainView.set(createNewBeanInstanceOfView(viewHistory.peek()).getView());
 
         } else {
             System.out.println("Can't go further back");
         }
     }
 
-    private Parent createNewBeanInstanceOfView(Class<? extends AbstractFxmlView> viewClass) {
-        return (appContext.getBean(viewClass)).getView();
+    private AbstractFxmlView createNewBeanInstanceOfView(Class<? extends AbstractFxmlView> viewClass) {
+        return (appContext.getBean(viewClass));
     }
 }
