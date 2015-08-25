@@ -1,6 +1,7 @@
 package ch.fhnw.springfx.presentation.first;
 
 import ch.fhnw.springfx.presentation.ViewNavigator;
+import ch.fhnw.springfx.presentation.second.SecondPresenter;
 import ch.fhnw.springfx.presentation.second.SecondView;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -13,6 +14,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Hasan Kara <hasan.kara@fhnw.ch>
@@ -29,20 +32,21 @@ public class FirstPresenter {
     @FXML
     Button nextPageButton;
 
-    String valueFromLastTime = "empty";
-
     @FXML
     public void initialize() {
         System.out.println("init FirstPresenter");
 
-        nameTextField.setText(valueFromLastTime);
         nextPageButton.disableProperty().bind(nameTextField.textProperty().isEmpty());
     }
 
     @FXML
     private void handleNextPage() {
-        valueFromLastTime = nameTextField.getText();
-        navigator.setMainView(SecondView.class);
+        String name = nameTextField.getText();
+
+        Map<String, Object> params = new HashMap<>();
+        params.put(SecondPresenter.NAME_KEY, name);
+
+        navigator.setMainView(SecondView.class, params);
     }
 
 }
