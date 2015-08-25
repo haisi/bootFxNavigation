@@ -10,5 +10,6 @@
 <AnchorPane maxHeight="-Infinity" prefHeight="659.0" prefWidth="1117.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.fhnw.springfx.presentation.second.SecondPresenter">
    <children>
       <Label fx:id="greetingLbl" layoutX="265.0" layoutY="167.0" text="Label" />
+      <Button layoutX="239.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleNextPage" text="Next Page" />
    </children>
 </AnchorPane>
