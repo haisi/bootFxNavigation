@@ -4,6 +4,7 @@ import ch.fhnw.springfx.presentation.displayer.DisplayerPresenter;
 import ch.fhnw.springfx.presentation.displayer.DisplayerView;
 import ch.fhnw.springfx.presentation.slider.SliderPresenter;
 import ch.fhnw.springfx.presentation.slider.SliderView;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.SplitPane;
@@ -36,7 +37,8 @@ public class ThirdSplitPanePresenter implements Initializable {
         SliderPresenter sliderPresenter = (SliderPresenter) sliderView.getPresenter();
 
         // bind the value of the slider to the label
-        displayerPresenter.labelValueProperty().bind(sliderPresenter.sliderValueProperty().asString());
+        displayerPresenter.labelValueProperty()
+                .bind(Bindings.format("%.2f", sliderPresenter.sliderValueProperty()));
 
         splitPane.getItems().add(displayerView.getView());
         splitPane.getItems().add(sliderView.getView());
